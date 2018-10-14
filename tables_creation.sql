@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS payments (
     payment_sum DOUBLE,
     payment_dttm TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (payment_id),
-    FOREIGN KEY (user_id) REFERENCES payments(payment_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 )  ENGINE=INNODB AUTO_INCREMENT=1;
 
 CREATE TABLE IF NOT EXISTS sessions (
@@ -20,5 +20,5 @@ CREATE TABLE IF NOT EXISTS sessions (
     begin_dttm TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     end_dttm TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (session_id),
-    FOREIGN KEY (user_id) REFERENCES sessions(session_id)
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 )  ENGINE=INNODB AUTO_INCREMENT=1;
