@@ -24,5 +24,5 @@ SELECT cte.dt, COUNT(distinct user_id) AS pay_count
  GROUP BY cte.dt
  ORDER BY cte.dt;
  
-select dau.dt, IFNULL(ppd.pay_count, 0) / dau.dau
+select dau.dt, IFNULL(ppd.pay_count, 0) / IFNULL(dau.dau, 1)
 from dau left join payments_per_day ppd on dau.dt = ppd.dt;
